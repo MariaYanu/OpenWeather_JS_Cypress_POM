@@ -1,0 +1,22 @@
+{
+  "name": "openweather_myproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariaYanu/OpenWeather_MyJSProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariaYanu/OpenWeather_MyJSProject/issues"
+  },
+  "homepage": "https://github.com/MariaYanu/OpenWeather_MyJSProject#readme",
+  "devDependencies": {
+    "cypress": "^11.2.0"
+  }
+}
