@@ -17,7 +17,7 @@ describe('header spec', () => {
    header.clickGuideLink();
    header.clickLogoLink();
 
-   mainPage.elements.getHeader().should('have.text', this.data.header)
+   mainPage.elements.getHeader().should('have.text', this.data.headerText)
 
   })
 })
