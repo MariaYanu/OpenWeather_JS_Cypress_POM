@@ -15,7 +15,7 @@ describe('Market place', function() {
         cy.visit('/');
     })
 
-    it('TC_010.007 |  Marketplace > Verify all links on the page have the same color', function() {
+    it.skip ('TC_010.007 |  Marketplace > Verify all links on the page have the same color', function() {
         header.clickMarketPlaceLink()
     })
 })
