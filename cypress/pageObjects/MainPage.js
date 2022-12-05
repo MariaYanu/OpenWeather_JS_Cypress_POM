@@ -3,7 +3,7 @@ class MainPage {
         getHeader : () => cy.get('.mobile-padding h1 span'),
         getSearchCityField : () => cy.get('input[placeholder="Search city"]'),
         getSearchButton : () => cy.get('.search button'),
-        getAllElementsFromDropDownMenu : () => cy.get('ul.search-dropdown-menu li'),
+        getDropDownMenuElements : () => cy.get('ul.search-dropdown-menu li'),
         getNameOfCityHeader : () => cy.get ('.current-container h2')
     }
 
@@ -13,6 +13,15 @@ class MainPage {
 
     clickSearchButton() {
         this.elements.getSearchButton().click()
+    }
+
+    checkDropDownMenuContainElementAndClick(text){
+        this.elements.getDropDownMenuElements().each(($el) => {
+            if(cy.wrap($el).contains(text)){
+                cy.wrap($el).click()
+            } 
+            return false;
+        })
     }
 }
 

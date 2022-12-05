@@ -16,7 +16,7 @@ class Header{
     }
 
     clickMarketPlaceLink() {
-        this.elements.getMarketPlaceLink().invoke('removeAttr','target').click()
+        this.elements.getMarketPlaceLink().invoke('removeAttr','target').click({force:true})
     }
 }
 

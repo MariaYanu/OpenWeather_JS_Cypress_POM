@@ -17,15 +17,10 @@ describe('Main page suit', function(){
         mainPage.inputTextInSearchCityField(cityForSearch)
         mainPage.clickSearchButton()
 
-        mainPage.elements.getAllElementsFromDropDownMenu().each(($el) => {
-            if(cy.wrap($el).contains(cityForSelectList)){
-                cy.wrap($el).click()
-            } 
-            return false;
-        })
+        mainPage.checkDropDownMenuContainElementAndClick(cityForSelectList)
 
         mainPage.elements.getNameOfCityHeader()
-        .contains(cityForSelectList)
-        .should('be.visible')
+        .should('have.text', cityForSelectList)
+        .and('be.visible')
     });
 })

@@ -15,7 +15,10 @@ describe('Market place', function() {
         cy.visit('/');
     })
 
-    it.skip ('TC_010.007 |  Marketplace > Verify all links on the page have the same color', function() {
+    it('TC_010.007 |  Marketplace > Verify all links on the page have the same color', function() {
         header.clickMarketPlaceLink()
+        marketPlacePage.elements.getProductHeaders().each(($el) => {
+          cy.wrap($el).should('have.css','color',this.data.productHeadersColor)
+        })
     })
 })
