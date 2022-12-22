@@ -25,9 +25,9 @@ describe('API testing', function() {
             .then((response) => {
                 TOKEN = response.body.token;
                 expect(response.status).to.be.eq(200)
-                expect(response.statusText).to.be.eq("OK")
             })
         })
+
 
         it('Verify the type of token key is string', function() {
             getResponse()
@@ -38,7 +38,7 @@ describe('API testing', function() {
         
     })
 
-    describe('Get Booking Ids', function() {
+    describe('GetBookingIds', function() {
 
         const getResponse = () => 
             cy.request({
@@ -53,18 +53,19 @@ describe('API testing', function() {
         })
     })
 
-    it('Verify response status text', function() {
+    it ('Verify response has headers', function() {
         getResponse()
-        .then(({statusText}) => {
-        expect(statusText).to.eq('OK')
+        .then((response) => {
+        expect(response).to.have.property('headers')
     })
     })
 
-    it('Print response headers', function() {
+    it.only('Verify response has key bookingid', function() {
         getResponse()
-        .then(({headers}) => {
-        console.log(headers)
-    })
+        .then(({body}) => {
+            console.log(body)
+            expect(body[0]).to.have.keys('bookingid')
+        })
     })
     })
 
@@ -81,5 +82,27 @@ describe('API testing', function() {
             console.log(response)
         })
     })
+    })
+
+    describe('CreateBooking', function() {
+        const getResponse = () => {
+            cy.request({
+                method : "post",
+                url : BASE_URL,
+                headers : {
+                    "Content-Type" : "application/json"},
+                body : {
+                    "firstname" : "Jim",
+                    "lastname" : "Brown",
+                    "totalprice" : 111,
+                    "depositpaid" : true,
+                    "bookingdates" : {
+                        "checkin" : "2018-01-01",
+                        "checkout" : "2019-01-01"
+                    },
+                    "additionalneeds" : "Breakfast"
+                }
+        })
+        }
     })
 })
